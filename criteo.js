@@ -9,8 +9,8 @@ function autokena(){
       +'<soap:Envelope xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:soap="http://schemas.xmlsoap.org/soap/envelope/">'
         +'<soap:Body>'
          +'<clientLogin xmlns="https://advertising.criteo.com/API/v201305">'
-          +"<username>echanez@nationsinfocorp.com</username>"
-          +"<password>goNat10ns!</password>"
+          +"<username>echanez@nationsinfocorp.com</username>"   //This needs change
+          +"<password>goNat10ns!</password>"   //This needs change
           +"<source>''</source>"
          +"</clientLogin>"
         +"</soap:Body>"
@@ -32,8 +32,8 @@ function autokena(){
         "SOAPAction": '"https://advertising.criteo.com/API/v201305/clientLogin"'
       };
   
-  var result = UrlFetchApp.fetch("https://advertising.criteo.com/API/v201305/AdvertiserService.asmx?WSDL", options);
-  var dsheet=SpreadsheetApp.openByUrl('https://docs.google.com/spreadsheets/d/1Jlov5n-Yunm7Eyz573PFPl1rt8mlKGY_MMMDwVag2Fo/edit#gid=0')
+  var result = UrlFetchApp.fetch("https://advertising.criteo.com/API/v201305/AdvertiserService.asmx?WSDL", options);  
+  var dsheet=SpreadsheetApp.openByUrl('https://docs.google.com/spreadsheets/d/1Jlov5n-Yunm7Eyz573PFPl1rt8mlKGY_MMMDwVag2Fo/edit#gid=0') //This needs change if you want to export a different file
   var aut = XmlService.parse(result).getRootElement().getChildren()[0].getChildren()[0].getChildren()[0].getText()
 
   //get jobid
@@ -43,7 +43,7 @@ function autokena(){
       +'<soap:Header>'
       +'<apiHeader xmlns="https://advertising.criteo.com/API/v201305">'
      +'<authToken>'+aut+'</authToken>'
-      +'<appToken>7546791053888090112</appToken>'
+      +'<appToken>7546791053888090112</appToken>' //This needs change
       +'<clientVersion>?</clientVersion>'
    + '</apiHeader>'
   +'</soap:Header>'
@@ -76,18 +76,18 @@ function autokena(){
         "SOAPAction": '"https://advertising.criteo.com/API/v201305/scheduleReportJob"'
       };
   var result = UrlFetchApp.fetch("https://advertising.criteo.com/API/v201305/AdvertiserService.asmx?WSDL", options);
-  var dsheet=SpreadsheetApp.openByUrl('https://docs.google.com/spreadsheets/d/1Jlov5n-Yunm7Eyz573PFPl1rt8mlKGY_MMMDwVag2Fo/edit#gid=0')
+  var dsheet=SpreadsheetApp.openByUrl('https://docs.google.com/spreadsheets/d/1Jlov5n-Yunm7Eyz573PFPl1rt8mlKGY_MMMDwVag2Fo/edit#gid=0') //This needs change if you want to export a different file
   var job = XmlService.parse(result).getRootElement().getChildren()[0].getChildren()[0].getChildren()[0].getChildren()[0].getText()
 
   
-  //getdownloadlink
+  //getdownloadlink to spreadsheet
  var pay =          
       '<?xml version="1.0" encoding="utf-8"?>'
     +'<soap:Envelope xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:soap="http://schemas.xmlsoap.org/soap/envelope/">'
       +'<soap:Header>'
       +'<apiHeader xmlns="https://advertising.criteo.com/API/v201305">'
      +'<authToken>'+aut+'</authToken>'
-      +'<appToken>7546791053888090112</appToken>'
+      +'<appToken>7546791053888090112</appToken>' //This needs change 
       +'<clientVersion>?</clientVersion>'
    + '</apiHeader>'
   +'</soap:Header>'
@@ -108,7 +108,7 @@ function autokena(){
         "SOAPAction": '"https://advertising.criteo.com/API/v201305/getReportDownloadUrl"'
       };
   var result = UrlFetchApp.fetch("https://advertising.criteo.com/API/v201305/AdvertiserService.asmx?WSDL", options);
-  var dsheet=SpreadsheetApp.openByUrl('https://docs.google.com/spreadsheets/d/1Jlov5n-Yunm7Eyz573PFPl1rt8mlKGY_MMMDwVag2Fo/edit#gid=0')
+  var dsheet=SpreadsheetApp.openByUrl('https://docs.google.com/spreadsheets/d/1Jlov5n-Yunm7Eyz573PFPl1rt8mlKGY_MMMDwVag2Fo/edit#gid=0') //This needs change if you want to export a different file
   var dllink = XmlService.parse(result).getRootElement().getChildren()[0].getChildren()[0].getChildren()[0].getText()
  
  
